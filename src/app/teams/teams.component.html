@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <tr>
+      <th>Team ID</th>
+      <th>Users</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let team of teams">
+      <td>{{ team.teamId }}</td>
+      <td>
+        <ul>
+          <li *ngFor="let user of team.users">{{ user.name }}</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
