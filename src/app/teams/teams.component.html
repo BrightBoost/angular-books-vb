@@ -2,17 +2,18 @@
   <thead>
     <tr>
       <th>Team ID</th>
-      <th>Users</th>
+      <th>User</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let team of teams">
       <td>{{ team.teamId }}</td>
-      <td>
-        <ul>
-          <li *ngFor="let user of team.users">{{ user.name }}</li>
-        </ul>
-      </td>
+      <td *ngFor="let user of team.users">{{ "Username: " + user.username }}
+      <tr *ngFor="let user of team.users">
+      <td>{{ "Email: " + user.email }}
+      
+      <tr *ngFor="let book of user.books">{{ "Boek: " + book.book}}
+      <td *ngFor="let book of user.books">{{ "Auteur: " + book.author}}</td>
     </tr>
   </tbody>
 </table>

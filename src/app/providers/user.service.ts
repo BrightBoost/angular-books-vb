@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, Subject, of } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Team } from '../models/team.model';
+import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root',
 })
-export class TeamService {
-  private teamsEndpoint: string = 'http://localhost:8080/api/teams';
+export class UserService {
+  private usersEndpoint: string = 'http://localhost:8080/api/users';
   // dependency injection of object of type HttpClient
   constructor(private http: HttpClient) {}
   private httpOptions = {
@@ -18,15 +18,15 @@ export class TeamService {
   })
   };
 
-  getTeams(): Observable<Array<Team>> {
+  getUsers(): Observable<Array<User>> {
     return this.http
-      .get(this.teamsEndpoint, this.httpOptions)
-      .pipe(map((res) => <Team[]>res));
+      .get(this.usersEndpoint, this.httpOptions)
+      .pipe(map((res) => <User[]>res));
   }
 
-  addTeam(team: Team): Observable<Team> {
-    console.dir(team);
-    return this.http.post<Team>(this.teamsEndpoint,  {teamId: team.teamId, users: []}, this.httpOptions);
+  addUser(user: User): Observable<User> {
+    console.dir(user);
+    return this.http.post<User>(this.usersEndpoint,  {userId: user.userId, username: user.username, email: user.email, books: []}, this.httpOptions);
     
   }
 }

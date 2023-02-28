@@ -16,6 +16,7 @@ export class AddTeamComponent {
 
   }
   onSubmit() {
-    this.teamService.addTeam(this.newTeam);   
+    this.teamService.addTeam(this.newTeam).subscribe();   
+    console.log('Ik ben hier');
   }
 }

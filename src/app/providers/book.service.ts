@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, Subject, of } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Team } from '../models/team.model';
+import { Book } from '../models/book.model';
 
 @Injectable({
   providedIn: 'root',
 })
-export class TeamService {
-  private teamsEndpoint: string = 'http://localhost:8080/api/teams';
+export class BookService {
+  private booksEndpoint: string = 'http://localhost:8080/api/books';
   // dependency injection of object of type HttpClient
   constructor(private http: HttpClient) {}
   private httpOptions = {
@@ -18,15 +18,15 @@ export class TeamService {
   })
   };
 
-  getTeams(): Observable<Array<Team>> {
+  getBooks(): Observable<Array<Book>> {
     return this.http
-      .get(this.teamsEndpoint, this.httpOptions)
-      .pipe(map((res) => <Team[]>res));
+      .get(this.booksEndpoint, this.httpOptions)
+      .pipe(map((res) => <Book[]>res));
   }
 
-  addTeam(team: Team): Observable<Team> {
-    console.dir(team);
-    return this.http.post<Team>(this.teamsEndpoint,  {teamId: team.teamId, users: []}, this.httpOptions);
+  addBook(book: Book): Observable<Book> {
+    console.dir(book);
+    return this.http.post<Book>(this.booksEndpoint,  {teamId: book.bookId, book: book.book, author: book.author}, this.httpOptions);
     
   }
 }

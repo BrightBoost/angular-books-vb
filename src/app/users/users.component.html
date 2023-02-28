@@ -1,0 +1,19 @@
+<table>
+    <thead>
+      <tr>
+        <th>User ID</th>
+        <th>UserInfo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        {{"UserId" + user.userId }}
+            <td>{{ "Username: " + user.username }}<br>
+        {{ "Email: " + user.email }}
+        <tr *ngFor="let book of user.books">
+            {{ "Boek: " + book.book }}<br>
+            {{ "Auteur: " + book.author}}
+          </tr>
+      </tr>
+    </tbody>
+  </table>
