@@ -8,8 +8,8 @@
     <label for="email">Email: </label>
     <input type="string" id="email" name="email" [(ngModel)]="newUser.email" required>
     <br /><br />
-    <label for="book">Boeken: </label>
-    <select id="book" name="book" [(ngModel)]="newUser.books" multiple required>
+    <label for="bookId">Boeken: </label>
+    <select id="bookId" name="bookId" [(ngModel)]="newUser.books" multiple required>
       <option *ngFor="let book of books" [value]="book.bookId">{{ book.bookId }}</option>
     </select>
     <br /><br />

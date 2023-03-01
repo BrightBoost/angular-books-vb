@@ -11,10 +11,10 @@ import { SelectorContext } from '@angular/compiler';
   styleUrls: ['./add-user.component.css']
 })
 export class AddUserComponent {
-  books: Array<Book> = [];
   newUser: User = new User(0, '', '', []);
   username: string = '';
   email: string = '';
+  books: any = [];
 ;
 
   constructor(private userService: UserService, private bookService: BookService) {
