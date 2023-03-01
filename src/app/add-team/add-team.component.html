@@ -1,6 +1,11 @@
 <form (submit)="onSubmit()">
   <label for="teamId">Team ID:</label>
   <input type="number" id="teamId" name="teamId" [(ngModel)]="newTeam.teamId" required>
-  
+  <br /><br />
+    <label for="userId">Users: </label>
+    <select id="userId" name="userId" [(ngModel)]="newTeam.users" multiple required>
+      <option *ngFor="let user of users" [value]="user.userId">{{ user.userId }}</option>
+    </select>
+    <br /><br />
   <input type="submit" value="Create team">
 </form>

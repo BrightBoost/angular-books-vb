@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { User } from '../models/user.model';
 import { UserService } from '../providers/user.service';
 
@@ -7,7 +7,7 @@ import { UserService } from '../providers/user.service';
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css']
 })
-export class UsersComponent {
+export class UsersComponent implements OnInit {
   users: Array<User> = [];
   constructor(private userService: UserService) {}
 

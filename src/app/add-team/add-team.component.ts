@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Team } from '../models/team.model';
 import { TeamService } from '../providers/team.service';
+import { UserService } from '../providers/user.service';
 
 @Component({
   selector: 'app-add-team',
@@ -8,15 +9,22 @@ import { TeamService } from '../providers/team.service';
   styleUrls: ['./add-team.component.css']
 })
 export class AddTeamComponent {
-
   newTeam: Team = new Team(0, []);
-  user: string = '';
+  users: any = [];
 
-  constructor(private teamService: TeamService) {
+  constructor(private teamService: TeamService, private userService: UserService) {
 
   }
   onSubmit() {
     this.teamService.addTeam(this.newTeam).subscribe();   
     console.log('Ik ben hier');
+  }
+
+  ngOnInit() {
+    this.userService.getUsers().subscribe(
+      data => {
+        this.users = data;
+      }
+    );
   }
 }
