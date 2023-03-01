@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { User } from '../models/user.model';
 import { UserService } from '../providers/user.service';
 import { BookService } from '../providers/book.service';
+import { Book } from '../models/book.model';
 
 @Component({
   selector: 'app-add-user',
@@ -12,8 +13,7 @@ export class AddUserComponent {
   newUser: User = new User(0, '', '', []);
   username: string = '';
   email: string = '';
-  books: any = [];
-;
+  books: any [] = [];
 
   constructor(private userService: UserService, private bookService: BookService) {
   }

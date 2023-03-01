@@ -10,8 +10,9 @@
     <br /><br />
     <label for="bookId">Boeken: </label>
     <select id="bookId" name="bookId" [(ngModel)]="newUser.books" multiple required>
-      <option *ngFor="let book of books" [value]="book.bookId">{{ book.bookId }}</option>
+    <option *ngFor="let book of books" [value]="book.bookId">{{ book.bookId }}</option>
     </select>
+
     <br /><br />
     <input type="submit" value="Create user">
   </form>
