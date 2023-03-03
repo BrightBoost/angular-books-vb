@@ -19,6 +19,8 @@ export class AddUserComponent {
   }
 
   onSubmit() {
+    this.newUser.books = this.getBooksById(this.newUser.books);
+    console.dir(this.newUser);
     this.userService.addUser(this.newUser).subscribe();   
     console.log('Ik ben hier');
   }
@@ -30,4 +32,16 @@ export class AddUserComponent {
       }
     );
   }
+
+  getBooksById(ids: any): Array<Book> {
+    let arrBooks: Array<Book> = [];
+    for (let id of ids) {
+      console.log(id);
+      let book = this.books.find((b) => b.bookId == id);
+      if (book != undefined) {
+        arrBooks.push(book);
+      }
+    }
+    return arrBooks;
+}
 }

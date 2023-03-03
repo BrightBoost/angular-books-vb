@@ -16,7 +16,6 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { UserService } from './providers/user.service';
 
 const appRoutes: Routes = [
-  { path: '', component: AppComponent },
   { path: 'teams', component: TeamsComponent },
   { path: 'add-team', component: AddTeamComponent },
   { path: 'books', component: BooksComponent },

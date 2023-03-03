@@ -26,7 +26,7 @@ export class TeamService {
 
   addTeam(team: Team): Observable<Team> {
     console.dir(team);
-    return this.http.post<Team>(this.teamsEndpoint,  {teamId: team.teamId, users: []}, this.httpOptions);
+    return this.http.post<Team>(this.teamsEndpoint,  {teamId: team.teamId, users: team.users}, this.httpOptions);
     
   }
 }
